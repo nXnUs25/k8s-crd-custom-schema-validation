@@ -1,0 +1,22 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            // RUN THIS TO EXECUTE EDGE-K8S-OPERATOR
+            "name": "k8s-cr-validator",
+            "type": "go",
+            "request": "launch",
+            "program": "${workspaceFolder}/main.go",
+            "env": {
+                "KUBECONFIG": "/etc/rancher/k3s/k3s.yaml",
+                "SWAGGER_DEBUG": "TRUE",
+            },
+            // To run as root
+            // "console": "integratedTerminal",
+            // "asRoot": true,
+        },
+    ]
+}

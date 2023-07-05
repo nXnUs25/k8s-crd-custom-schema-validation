@@ -1,0 +1,227 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.10.0
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apiextensions.k8s.io/v1","kind":"CustomResourceDefinition","metadata":{"annotations":{"controller-gen.kubebuilder.io/version":"v0.10.0"},"creationTimestamp":null,"name":"cumulocityiotedges.edge.cumulocity.com"},"spec":{"group":"edge.cumulocity.com","names":{"kind":"CumulocityIoTEdge","listKind":"CumulocityIoTEdgeList","plural":"cumulocityiotedges","shortNames":["edge","cie"],"singular":"cumulocityiotedge"},"scope":"Cluster","versions":[{"name":"v1","schema":{"openAPIV3Schema":{"description":"CumulocityIoTEdge is the Schema for the CumulocityIoTEdges API","properties":{"apiVersion":{"description":"APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources","type":"string"},"kind":{"description":"Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds","type":"string"},"metadata":{"type":"object"},"spec":{"description":"CumulocityIoTEdgeSpec defines the desired state of CumulocityIoTEdge","properties":{"company":{"type":"string"},"core":{"properties":{"coreValues":{"description":"CoreValues corespond to helm chart values.yaml fields. This is the correct place to externalize fields from values.yaml","properties":{"edgeTenantAllowedIPBlocks":{"items":{"type":"string"},"type":"array"},"managementTenantAllowedIPBlocks":{"items":{"type":"string"},"type":"array"}},"type":"object"},"resources":{"properties":{"limits":{"properties":{"cpu":{"type":"string"},"memory":{"type":"string"},"storage":{"type":"string"}},"type":"object"},"requests":{"properties":{"cpu":{"type":"string"},"memory":{"type":"string"},"storage":{"type":"string"}},"type":"object"}},"type":"object"}},"type":"object"},"domain":{"type":"string"},"email":{"type":"string"},"lastSecretChange":{"format":"date-time","type":"string"},"licenseSecretName":{"type":"string"},"microservices":{"items":{"properties":{"name":{"type":"string"},"resources":{"properties":{"limits":{"properties":{"cpu":{"type":"string"},"memory":{"type":"string"},"storage":{"type":"string"}},"type":"object"},"requests":{"properties":{"cpu":{"type":"string"},"memory":{"type":"string"},"storage":{"type":"string"}},"type":"object"}},"type":"object"}},"required":["name"],"type":"object"},"type":"array"},"mongodb":{"properties":{"connectionString":{"type":"string"},"credentialsSecretName":{"type":"string"},"resources":{"properties":{"limits":{"properties":{"cpu":{"type":"string"},"memory":{"type":"string"},"storage":{"type":"string"}},"type":"object"},"requests":{"properties":{"cpu":{"type":"string"},"memory":{"type":"string"},"storage":{"type":"string"}},"type":"object"}},"type":"object"},"tlsSecretName":{"type":"string"}},"required":["credentialsSecretName"],"type":"object"},"remoteTenantDomain":{"type":"string"},"storageClassName":{"type":"string"},"tlsSecretName":{"type":"string"},"version":{"type":"string"}},"required":["company","domain","email","licenseSecretName","mongodb","version"],"type":"object"},"status":{"description":"CumulocityIoTEdgeStatus defines the observed state of CumulocityIoTEdge","properties":{"deployedGeneration":{"format":"int64","type":"integer"},"deployingGeneration":{"format":"int64","type":"integer"},"lastUpdateTime":{"format":"date-time","type":"string"},"messages":{"items":{"type":"string"},"type":"array"},"state":{"type":"string"},"version":{"type":"string"},"warnings":{"items":{"type":"string"},"type":"array"}},"type":"object"}},"required":["metadata","spec"],"type":"object"}},"served":true,"storage":true,"subresources":{"status":{}}}]}}
+  creationTimestamp: "2023-06-29T15:11:57Z"
+  generation: 1
+  name: cumulocityiotedges.edge.cumulocity.com
+  resourceVersion: "862"
+  uid: b4550338-48fb-460a-971f-d9b3625ed759
+spec:
+  conversion:
+    strategy: None
+  group: edge.cumulocity.com
+  names:
+    kind: CumulocityIoTEdge
+    listKind: CumulocityIoTEdgeList
+    plural: cumulocityiotedges
+    shortNames:
+    - edge
+    - cie
+    singular: cumulocityiotedge
+  scope: Cluster
+  versions:
+  - name: v1
+    schema:
+      openAPIV3Schema:
+        description: CumulocityIoTEdge is the Schema for the CumulocityIoTEdges API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: CumulocityIoTEdgeSpec defines the desired state of CumulocityIoTEdge
+            properties:
+              company:
+                type: string
+              core:
+                properties:
+                  coreValues:
+                    description: CoreValues corespond to helm chart values.yaml fields.
+                      This is the correct place to externalize fields from values.yaml
+                    properties:
+                      edgeTenantAllowedIPBlocks:
+                        items:
+                          type: string
+                        type: array
+                      managementTenantAllowedIPBlocks:
+                        items:
+                          type: string
+                        type: array
+                    type: object
+                  resources:
+                    properties:
+                      limits:
+                        properties:
+                          cpu:
+                            type: string
+                          memory:
+                            type: string
+                          storage:
+                            type: string
+                        type: object
+                      requests:
+                        properties:
+                          cpu:
+                            type: string
+                          memory:
+                            type: string
+                          storage:
+                            type: string
+                        type: object
+                    type: object
+                type: object
+              domain:
+                type: string
+              email:
+                type: string
+              lastSecretChange:
+                format: date-time
+                type: string
+              licenseSecretName:
+                type: string
+              microservices:
+                items:
+                  properties:
+                    name:
+                      type: string
+                    resources:
+                      properties:
+                        limits:
+                          properties:
+                            cpu:
+                              type: string
+                            memory:
+                              type: string
+                            storage:
+                              type: string
+                          type: object
+                        requests:
+                          properties:
+                            cpu:
+                              type: string
+                            memory:
+                              type: string
+                            storage:
+                              type: string
+                          type: object
+                      type: object
+                  required:
+                  - name
+                  type: object
+                type: array
+              mongodb:
+                properties:
+                  connectionString:
+                    type: string
+                  credentialsSecretName:
+                    type: string
+                  resources:
+                    properties:
+                      limits:
+                        properties:
+                          cpu:
+                            type: string
+                          memory:
+                            type: string
+                          storage:
+                            type: string
+                        type: object
+                      requests:
+                        properties:
+                          cpu:
+                            type: string
+                          memory:
+                            type: string
+                          storage:
+                            type: string
+                        type: object
+                    type: object
+                  tlsSecretName:
+                    type: string
+                required:
+                - credentialsSecretName
+                type: object
+              remoteTenantDomain:
+                type: string
+              storageClassName:
+                type: string
+              tlsSecretName:
+                type: string
+              version:
+                type: string
+            required:
+            - company
+            - domain
+            - email
+            - licenseSecretName
+            - mongodb
+            - version
+            type: object
+          status:
+            description: CumulocityIoTEdgeStatus defines the observed state of CumulocityIoTEdge
+            properties:
+              deployedGeneration:
+                format: int64
+                type: integer
+              deployingGeneration:
+                format: int64
+                type: integer
+              lastUpdateTime:
+                format: date-time
+                type: string
+              messages:
+                items:
+                  type: string
+                type: array
+              state:
+                type: string
+              version:
+                type: string
+              warnings:
+                items:
+                  type: string
+                type: array
+            type: object
+        required:
+        - metadata
+        - spec
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
+status:
+  acceptedNames:
+    kind: CumulocityIoTEdge
+    listKind: CumulocityIoTEdgeList
+    plural: cumulocityiotedges
+    shortNames:
+    - edge
+    - cie
+    singular: cumulocityiotedge
+  conditions:
+  - lastTransitionTime: "2023-06-29T15:11:57Z"
+    message: no conflicts found
+    reason: NoConflicts
+    status: "True"
+    type: NamesAccepted
+  - lastTransitionTime: "2023-06-29T15:11:57Z"
+    message: the initial names have been accepted
+    reason: InitialNamesAccepted
+    status: "True"
+    type: Established
+  storedVersions:
+  - v1

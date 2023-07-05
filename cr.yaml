@@ -1,0 +1,47 @@
+apiVersion: edge.cumulocity.com/v1
+kind: CumulocityIoTEdge
+metadata:
+  name: edge-sample
+spec:
+  version: ${{EDGE-VERSION-TO-DEPLOY}}
+  #licenseSecretName: cumulocity-license
+  company: something inc.
+  domain: myown.iot.com
+  email: something@iot.com
+  storageClassName: "custom-sc"
+  mongodb:
+    credentialsSecretName: internal-mongodb-credentials
+    resources:
+      limits:
+        cpu: 1010m
+        memory: 2010M
+      requests:
+        cpu: 1010m
+        memory: 1010M
+        storage: 60G
+  core:
+    resources:
+      limits:
+        cpu: 2010m #Not used as cumulocity core helm chart doesn't allow to configure
+        memory: 6010M
+      requests:
+        cpu: 2010m
+        memory: 2010M
+  microservices:
+    - name: smartrule
+      resources: #For smartrule, limitMemory is given as 1G in both, both edgeDependencies and microservice-manifest. So the same should be used when user doesn't provide.
+        limits:
+          cpu: 2010m
+    - name: opcua-mgmt-service
+      resources:
+        limits:
+          memory: 1546M
+    - name: device-simulator
+      resources:
+        limits:
+          cpu: 2010m
+          memory: 2010M
+    - name: apama-ctrl
+      resources: #For apama-ctrl, when limitMemory in manifest is 4g, while in edgeDependencies, we defined as 2000M. So it should use value from edgeDependencies, as we are not passing here.
+        limits:
+          cpu: 2010m #Undefined parameter in both edgeDependencies and microservice-manifest
