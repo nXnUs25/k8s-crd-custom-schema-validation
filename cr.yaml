@@ -4,7 +4,7 @@ metadata:
   name: edge-sample
 spec:
   version: ${{EDGE-VERSION-TO-DEPLOY}}
-  #licenseSecretName: cumulocity-license
+  licenseSecretName: cumulocity-license
   company: something inc.
   domain: myown.iot.com
   email: something@iot.com

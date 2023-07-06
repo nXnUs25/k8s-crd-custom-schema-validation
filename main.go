@@ -51,12 +51,15 @@ func main() {
 			if err := extv1.Convert_v1_CustomResourceDefinition_To_apiextensions_CustomResourceDefinition(crd, internal, nil); err != nil {
 				return err
 			}
+			fmt.Println(crd)
+			fmt.Println()
+			fmt.Println(internal)
 			for _, ver := range internal.Spec.Versions {
 				// var sv *validate.SchemaValidator
 				// var sv *validators.EdgeValidator
 				var err error
 				// sv, _, err = validation.NewSchemaValidator(ver.Schema)
-				sv, err := cust_validators.NewCustomValidator(internal.Spec.Validation)
+				sv, err := cust_validators.NewCustomValidator(ver.Schema)
 				if err != nil {
 					return err
 				}

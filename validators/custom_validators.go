@@ -1,4 +1,4 @@
-package edge_validators
+package validators
 
 import (
 	"fmt"
@@ -36,6 +36,7 @@ func (e *CustomManager) Validate(data interface{}) *validate.Result {
 	result := e.SchemaValidator.Validate(data)
 
 	result.AddErrors(fmt.Errorf("namespace [%s] already exists, but not owned by edge custom resource named [%s]", "edge-sample-core", "edge-sample"))
+	fmt.Println("we are here")
 
 	return result
 }

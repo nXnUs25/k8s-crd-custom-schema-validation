@@ -169,6 +169,7 @@ spec:
             - licenseSecretName
             - mongodb
             - version
+            - storageClassName
             type: object
           status:
             description: CumulocityIoTEdgeStatus defines the observed state of CumulocityIoTEdge
